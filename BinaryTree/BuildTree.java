@@ -12,13 +12,15 @@ public class BuildTree {
         }
     }
 
-    Node buildTree(int[] data, int idx) {
+    int idx = -1;
+    Node buildTree(int[] data) {
+        idx++;
         if (data[idx] == -1)
             return null;
 
         Node node = new Node(data[idx]);
-        node.left = buildTree(data, idx+1);
-        node.right = buildTree(data, idx+1);
+        node.left = buildTree(data);
+        node.right = buildTree(data);
 
         return node;
     }
