@@ -2,11 +2,21 @@ package BinaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+public class HightOfBT extends BuildTree{
 
-public class LevelOrderTraversal extends BuildTree{
     Queue<Node> q = new LinkedList<>();
 
-    void traverseTree(Node root) {
+    int findHight(Node root) {
+        if (root == null)
+            return 0;
+
+        int leftNode = findHight(root.left);
+        int rightNode = findHight(root.right);
+
+        return Math.max(leftNode, rightNode) + 1;
+    }
+
+    void levelOrderTraverse(Node root) {
         Node empty = new Node(-1);
         if (root == null)
             return;
@@ -32,25 +42,12 @@ public class LevelOrderTraversal extends BuildTree{
         }
     }
 
-    void printTree(Node root) {
-        if (root == null) {
-            System.out.print("null ");
-            return;
-        }
-
-        System.out.print(root.data + " ");
-
-        printTree(root.left);
-        printTree(root.right);
-    }
-
     public static void main(String[] args) {
-        LevelOrderTraversal tree = new LevelOrderTraversal();
-
-        int node[] = {20, 30, 50, 55, -1, -1, -1, 40, -1, 60, -1, -1, 100, 90, -1, 105, -1, -1, 120, 110, -1, -1, -1};
-        BuildTree.Node root = tree.buildTree(node);
-        tree.printTree(root);
-        System.out.println();
-        tree.traverseTree(root);
+        HightOfBT tree = new HightOfBT();
+        int[] node = {10, 20, 40, -1, -1, -1, 30, -1, 60, 70, 80, -1, -1, -1, -1};
+        Node root = tree.buildTree(node);
+        tree.levelOrderTraverse(root);
+        int hight = tree.findHight(root);
+        System.out.println("Hight of the tree is - " + hight);
     }
 }
