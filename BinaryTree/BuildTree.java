@@ -37,7 +37,7 @@ public class BuildTree {
         Node node = new Node(data[idx]);
         q.add(node);
 
-
         return node;
     }
+
 }
