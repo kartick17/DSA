@@ -1,7 +1,6 @@
 package BinaryTree;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class KthAncestor extends BuildTree {
@@ -30,7 +29,6 @@ public class KthAncestor extends BuildTree {
     }
 
     void levelOrderTraverse(Node root) {
-        Node empty = new Node(-1);
         if (root == null)
             return;
 
@@ -60,7 +58,7 @@ public class KthAncestor extends BuildTree {
         int[] node = {10, 20, 40, -1, -1, 50, -1, -1, 30, 60, -1, -1, 70, -1, -1};
         Node root = tree.buildTree(node);
         tree.levelOrderTraverse(root);
-        tree.findAncestor(root, 40, 1);
+//        tree.findAncestor(root, 40, 1);
 //        System.out.println(LCA.data);
     }
 }
