@@ -1,7 +1,6 @@
 package BinaryTree;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class TreeTraversals extends BuildTree{
     Queue<Node> q = new LinkedList<>();
@@ -29,6 +28,33 @@ public class TreeTraversals extends BuildTree{
 
             if (temp.right != null)
                 q.add(temp.right);
+        }
+    }
+
+    void levelOrderBottom(Node root, List<Integer> list, List<List<Integer>> lists) {
+        if (root == null)
+            return;
+
+        q.add(root);
+        q.add(null);
+
+        while (!q.isEmpty()) {
+            Node temp = q.remove();
+
+            if (temp == null) {
+                lists.add(0, new ArrayList<Integer>(list));
+                list = new ArrayList<>();
+                if (!q.isEmpty())
+                    q.add(null);
+                continue;
+            }
+            list.add(temp.data);
+
+            if (temp.left != null)
+                q.add(temp.left);
+            if (temp.right != null)
+                q.add(temp.right);
+
         }
     }
 
@@ -68,16 +94,22 @@ public class TreeTraversals extends BuildTree{
         TreeTraversals tree = new TreeTraversals();
 
         int node[] = {20, 30, 50, 55, -1, -1, -1, 40, -1, 60, -1, -1, 100, 90, -1, 105, -1, -1, 120, 110, -1, -1, 130, -1, -1};
-        BuildTree.Node root = tree.buildTree(node);
+        Node root = tree.buildTree(node);
         System.out.println("Level Order Traversal");
         tree.levelOrderTraverse(root);
-        System.out.println("\nPreorder Traversal");
-        tree.preOrderTraverse(root);
-        System.out.println();
-        System.out.println("\nInorder Traversal");
-        tree.inOrderTravers(root);
-        System.out.println();
-        System.out.println("\nPostorder Traversal");
-        tree.postOrderTraverse(root);
+//        System.out.println("\nPreorder Traversal");
+//        tree.preOrderTraverse(root);
+//        System.out.println();
+//        System.out.println("\nInorder Traversal");
+//        tree.inOrderTravers(root);
+//        System.out.println();
+//        System.out.println("\nPostorder Traversal");
+//        tree.postOrderTraverse(root);
+
+        System.out.println("Level order bottom traversal");
+        List<List<Integer>> lists = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        tree.levelOrderBottom(root, list, lists);
+        System.out.println(lists);
     }
 }
