@@ -94,9 +94,10 @@ public class TreeTraversals extends BuildTree{
         TreeTraversals tree = new TreeTraversals();
 
         int node[] = {20, 30, 50, 55, -1, -1, -1, 40, -1, 60, -1, -1, 100, 90, -1, 105, -1, -1, 120, 110, -1, -1, 130, -1, -1};
-        Node root = tree.buildTree(node);
+        int levelNode[] = {1, 2, 3, 4, -1, 5, 6, 7, 8, -1, -1, 9, 10, -1, -1, -1, -1, -1, -1, -1, -1};
+//        Node root = tree.buildTree(node);
         System.out.println("Level Order Traversal");
-        tree.levelOrderTraverse(root);
+//        tree.levelOrderTraverse(root);
 //        System.out.println("\nPreorder Traversal");
 //        tree.preOrderTraverse(root);
 //        System.out.println();
@@ -106,10 +107,13 @@ public class TreeTraversals extends BuildTree{
 //        System.out.println("\nPostorder Traversal");
 //        tree.postOrderTraverse(root);
 
-        System.out.println("Level order bottom traversal");
-        List<List<Integer>> lists = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        tree.levelOrderBottom(root, list, lists);
-        System.out.println(lists);
+//        System.out.println("Level order bottom traversal");
+//        List<List<Integer>> lists = new ArrayList<>();
+//        List<Integer> list = new ArrayList<>();
+//        tree.levelOrderBottom(root, list, lists);
+//        System.out.println(lists);
+        Node rootLevel = tree.buildTreeLevel(levelNode);
+        tree.levelOrderTraverse(rootLevel);
+
     }
 }

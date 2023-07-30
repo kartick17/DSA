@@ -30,14 +30,33 @@ public class BuildTree {
     }
 
     Node buildTreeLevel(int[] data) {
-        idx++;
-        if (data[idx] == -1)
-            return null;
-
+        idx = 0;
         Node node = new Node(data[idx]);
+        Node n = node;
         q.add(node);
 
-        return node;
+        while (!q.isEmpty() && idx < data.length) {
+            Node root = q.remove();
+            if (++idx < data.length) {
+                if (data[idx] == -1)
+                    node = null;
+                else {
+                    node = new Node(data[idx]);
+                    q.add(node);
+                }
+                root.left = node;
+            }
+            if (++idx < data.length) {
+                if (data[idx] == -1)
+                    node = null;
+                else {
+                    node = new Node(data[idx]);
+                    q.add(node);
+                }
+                root.right = node;
+            }
+        }
+        return n;
     }
 
 }
