@@ -59,4 +59,31 @@ public class BuildTree {
         return n;
     }
 
+    Node createBST(Node root, int data) {
+        if (root == null) {
+            root = new Node(data);
+            return root;
+        }
+
+        if (data < root.data)
+            root.left = createBST(root.left, data);
+        else {
+            root.right = createBST(root.right, data);
+        }
+        return root;
+    }
+
+    Node buildBST(int[] data) {
+        int index = 0;
+        if (data[index] == -1)
+            return null;
+
+        Node root = null;
+        while (data[index] != -1 && index < data.length) {
+            root = createBST(root, data[index]);
+            index++;
+        }
+        return root;
+    }
+
 }

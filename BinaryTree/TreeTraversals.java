@@ -67,8 +67,6 @@ public class TreeTraversals extends BuildTree{
         inOrderTravers(root.right);
     }
 
-
-
     void preOrderTraverse(Node root) {
         if (root == null) {
             return;
