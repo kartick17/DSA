@@ -1,15 +1,16 @@
-package BinaryTree;
+package BinarySearchTree;
 
-import javax.sound.midi.Soundbank;
+import BinaryTree.BuildTree;
 
-public class SearchNodeInBST extends BuildTree {
+public class SearchNodeInBST extends BuildBST{
 
-    boolean search (Node root, int target) {
+    Node search (Node root, int target) {
         if (root == null)
-            return false;
+            return root;
 
-        if (root.data == target)
-            return true;
+        if (root.data == target) {
+            return root;
+        }
 
         if (target < root.data)
             return search(root.left, target);
@@ -41,8 +42,8 @@ public class SearchNodeInBST extends BuildTree {
         SearchNodeInBST tree = new SearchNodeInBST();
         int[] node = {10, 20, 5, 11, 17, 2, 4, 8, 6, 25, 15, 35, 1, -1};
         Node root = tree.buildBST(node);
-        boolean ans = tree.search(root, 5);
-        System.out.println(ans);
+        Node ans = tree.search(root, 5);
+        System.out.println(ans.data);
         System.out.println("Minimum value is - " + tree.minValue(root));
         System.out.println("Maximum value is - " + tree.maxValue(root));
     }

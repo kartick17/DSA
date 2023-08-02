@@ -59,31 +59,29 @@ public class BuildTree {
         return n;
     }
 
-    Node createBST(Node root, int data) {
-        if (root == null) {
-            root = new Node(data);
-            return root;
-        }
+    void levelOrderTraverse(Node root) {
+        if (root == null)
+            return;
 
-        if (data < root.data)
-            root.left = createBST(root.left, data);
-        else {
-            root.right = createBST(root.right, data);
-        }
-        return root;
-    }
+        q.add(root);
+        q.add(null);
+        while (!q.isEmpty()) {
+            Node temp = q.remove();
+            if (temp == null) {
+                System.out.println();
+                if (!q.isEmpty())
+                    q.add(null);
+                continue;
+            }
 
-    Node buildBST(int[] data) {
-        int index = 0;
-        if (data[index] == -1)
-            return null;
+            System.out.print(temp.data + " ");
 
-        Node root = null;
-        while (data[index] != -1 && index < data.length) {
-            root = createBST(root, data[index]);
-            index++;
+            if (temp.left != null)
+                q.add(temp.left);
+
+            if (temp.right != null)
+                q.add(temp.right);
         }
-        return root;
     }
 
 }

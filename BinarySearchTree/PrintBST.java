@@ -1,13 +1,12 @@
-package BinaryTree;
+package BinarySearchTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class PrintBST extends BuildTree{
+public class PrintBST extends BuildBST {
 
-    Queue<Node> q = new LinkedList<>();
     void levelOrderTraverse(Node root) {
-        Node empty = new Node(-1);
+        Queue<Node> q = new LinkedList<>();
         if (root == null)
             return;
 
