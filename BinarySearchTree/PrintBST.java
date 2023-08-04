@@ -57,7 +57,8 @@ public class PrintBST extends BuildBST {
 
     public static void main(String[] args) {
         PrintBST tree = new PrintBST();
-        int[] node = {10, 20, 5, 11, 17, 2, 4, 8, 6, 25, 15, -1};
+//        int[] node = {10, 20, 5, 11, 17, 2, 4, 8, 6, 25, 15, -1};
+        int node[] = {50, 25, 60, 10, 40, 55, 70, 30, 57, 65, -1};
         Node root = tree.buildBST(node);
         System.out.println("Level order traversal");
         tree.levelOrderTraverse(root);
