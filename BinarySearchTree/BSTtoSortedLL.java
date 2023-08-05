@@ -20,8 +20,9 @@ public class BSTtoSortedLL extends BuildBST {
         BSTtoSortedLL tree = new BSTtoSortedLL();
         int data[] = {50, 25, 60, 10, 40, 54, 70, 30, 56, 65, -1};
         Node root = tree.buildBST(data);
+        tree.levelOrderTraverse(root);
         Node head = tree.convertToLL(root);
-        Node tail = null;
+        Node tail = head;
         while (head != null) {
             System.out.print(head.data + " -> ");
             tail = head;

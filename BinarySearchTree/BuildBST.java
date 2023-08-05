@@ -44,6 +44,16 @@ public class BuildBST {
         return root;
     }
 
+    Node buildBSTInorder(int[] node, int s, int e) {
+        if (s > e)
+            return null;
+        int mid = (s + e)/2;
+        Node root = new Node(node[mid]);
+        root.left = buildBSTInorder(node, s, mid-1);
+        root.right = buildBSTInorder(node, mid+1, e);
+        return root;
+    }
+
     void levelOrderTraverse(Node root) {
         Queue<Node> q = new LinkedList<>();
         if (root == null)
