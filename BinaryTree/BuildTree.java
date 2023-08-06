@@ -5,10 +5,10 @@ import java.util.Queue;
 
 public class BuildTree {
 
-    class Node {
-        int data;
-        Node left, right;
-        Node (int data) {
+    public class Node {
+        public int data;
+        public Node left, right;
+        public Node (int data) {
             this.data = data;
             left = null;
             right = null;
@@ -17,7 +17,7 @@ public class BuildTree {
 
     int idx = -1;
     Queue<Node> q = new LinkedList<>();
-    Node buildTree(int[] data) {
+    public Node buildTree(int[] data) {
         idx++;
         if (data[idx] == -1)
             return null;
@@ -29,7 +29,7 @@ public class BuildTree {
         return node;
     }
 
-    Node buildTreeLevel(int[] data) {
+    public Node buildTreeLevel(int[] data) {
         idx = 0;
         Node node = new Node(data[idx]);
         Node n = node;
@@ -59,7 +59,7 @@ public class BuildTree {
         return n;
     }
 
-    void levelOrderTraverse(Node root) {
+    public void levelOrderTraverse(Node root) {
         if (root == null)
             return;
 
