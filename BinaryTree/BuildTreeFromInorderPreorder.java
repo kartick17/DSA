@@ -34,31 +34,6 @@ public class BuildTreeFromInorderPreorder extends BuildTree {
         return node;
     }
 
-    void levelOrderTraverse(Node root) {
-        if (root == null)
-            return;
-
-        q.add(root);
-        q.add(null);
-        while (!q.isEmpty()) {
-            Node temp = q.remove();
-            if (temp == null) {
-                System.out.println();
-                if (!q.isEmpty())
-                    q.add(null);
-                continue;
-            }
-
-            System.out.print(temp.data + " ");
-
-            if (temp.left != null)
-                q.add(temp.left);
-
-            if (temp.right != null)
-                q.add(temp.right);
-        }
-    }
-
     public static void main(String[] args) {
         BuildTreeFromInorderPreorder tree = new BuildTreeFromInorderPreorder();
 //        int[] inorder = {4, 2, 5, 1, 6, 3, 7};

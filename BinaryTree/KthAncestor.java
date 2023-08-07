@@ -28,7 +28,7 @@ public class KthAncestor extends BuildTree {
         return left || right;
     }
 
-    void levelOrderTraverse(Node root) {
+    public void levelOrderTraverse(Node root) {
         if (root == null)
             return;
 

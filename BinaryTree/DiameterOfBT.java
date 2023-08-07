@@ -29,32 +29,6 @@ public class DiameterOfBT extends BuildTree {
         return ans;
     }
 
-    void levelOrderTraverse(Node root) {
-        Node empty = new Node(-1);
-        if (root == null)
-            return;
-
-        q.add(root);
-        q.add(null);
-        while (!q.isEmpty()) {
-            Node temp = q.remove();
-            if (temp == null) {
-                System.out.println();
-                if (!q.isEmpty())
-                    q.add(null);
-                continue;
-            }
-
-            System.out.print(temp.data + " ");
-
-            if (temp.left != null)
-                q.add(temp.left);
-
-            if (temp.right != null)
-                q.add(temp.right);
-        }
-    }
-
     public static void main(String[] args) {
         DiameterOfBT tree = new DiameterOfBT();
         int[] node = {10, 20, -1, -1, 30,  40, 55, -1, -1, -1, 60, 70, 80, -1, -1, -1, -1};

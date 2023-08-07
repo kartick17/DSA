@@ -5,32 +5,6 @@ import java.util.*;
 public class TreeTraversals extends BuildTree{
     Queue<Node> q = new LinkedList<>();
 
-    void levelOrderTraverse(Node root) {
-        Node empty = new Node(-1);
-        if (root == null)
-            return;
-
-        q.add(root);
-        q.add(null);
-        while (!q.isEmpty()) {
-            Node temp = q.remove();
-            if (temp == null) {
-                System.out.println();
-                if (!q.isEmpty())
-                    q.add(null);
-                continue;
-            }
-
-            System.out.print(temp.data + " ");
-
-            if (temp.left != null)
-                q.add(temp.left);
-
-            if (temp.right != null)
-                q.add(temp.right);
-        }
-    }
-
     void levelOrderBottom(Node root, List<Integer> list, List<List<Integer>> lists) {
         if (root == null)
             return;
