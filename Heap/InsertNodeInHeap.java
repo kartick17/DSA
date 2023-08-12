@@ -2,7 +2,7 @@ package Heap;
 
 import java.util.Scanner;
 
-public class InsertNodeInHeap {
+public class InsertNodeInHeap extends BuildHeap{
 
     int size = 0;
     int heap[];
@@ -52,13 +52,6 @@ public class InsertNodeInHeap {
         }
     }
 
-    void printHeap(){
-        System.out.println("\nPrint heap");
-        for (int i = 1; i <= size; i++) {
-            System.out.print(heap[i] + " ");
-        }
-    }
-
     public static void main(String[] args) {
         InsertNodeInHeap obj = new InsertNodeInHeap(10);
         obj.insertNode(100);
@@ -69,8 +62,8 @@ public class InsertNodeInHeap {
         obj.insertNode(53);
         obj.insertNode(52);
 
-        obj.printHeap();
-        obj.deleteNode();
-        obj.printHeap();
+        obj.printHeap(obj.heap);
+        obj.heapify(obj.heap, 1, obj.size);
+        obj.printHeap(obj.heap);
     }
 }
