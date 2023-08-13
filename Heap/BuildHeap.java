@@ -20,17 +20,39 @@ public class BuildHeap {
         }
     }
 
+    void heapifyMin(int[] heap, int i, int len) {
+        int min = i, left = i*2, right = i*2+1;
+        if (left < len && heap[left] < heap[min])
+            min = left;
+
+        if (right < len && heap[right] < heap[min])
+            min = right;
+
+        if (min != i) {
+            int temp = heap[min];
+            heap[min] = heap[i];
+            heap[i] = temp;
+            heapify(heap, min, len);
+        }
+    }
+
     void buildHeap(int[] arr, int n) {
         for (int i = n/2; i > 0; i--) {
             heapify(arr, i, n);
         }
     }
 
+    void buildHeapMin(int[] arr, int len) {
+        for (int i = len/2; i > 0; i--)
+            heapifyMin(arr, i, len);
+    }
+
     void printHeap(int[] heap){
-        System.out.println("\nPrint heap");
+        System.out.println("Print heap");
         for (int i = 1; i < heap.length; i++) {
             System.out.print(heap[i] + " ");
         }
+        System.out.println();
     }
 
 }
