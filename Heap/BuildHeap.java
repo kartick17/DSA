@@ -4,19 +4,19 @@ import BinaryTree.BuildTree;
 
 public class BuildHeap {
 
-    void heapify(int[] heap, int i, int n) {
+    void heapify(int[] heap, int i, int len) {
         int max = i, left = 2*i, right = 2*i+1;
-        if (left < n && heap[left] > heap[max])
+        if (left < len && heap[left] > heap[max])
             max = left;
 
-        if (right < n && heap[right] > heap[max])
+        if (right < len && heap[right] > heap[max])
             max = right;
 
         if (max != i) {
             int temp = heap[max];
             heap[max] = heap[i];
             heap[i] = temp;
-            heapify(heap, max, n);
+            heapify(heap, max, len);
         }
     }
 
